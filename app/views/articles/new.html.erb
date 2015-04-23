@@ -1,0 +1,14 @@
+<div style="width:80%;margin:0 auto;">
+  <h1> Nuevo articulo</h1>
+
+    <%= form_for(@article) do |f| %>
+      <div class="field">
+        <%= f.text_field :title, placeholder:"Titulo del articulo", class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_area :body, placeholder:"Escribe el articulo",style:"height:300px",class:"form-control" %>
+      </div>
+
+    <%end%>
+</div>
