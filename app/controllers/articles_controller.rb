@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
  #GET /articles/:id
  def show
   @article=Article.find(params[:id])
+  #Article.where.not("id =?",params[:id])
  end
 
  #GET /articles/new
@@ -18,7 +19,8 @@ class ArticlesController < ApplicationController
 
  #POST /articles/
  def create
-  @article=Article.new(title:params[:article][:title], body:params[:article][:body])
+ # @article=Article.new(title:params[:article][:title], body:params[:article][:body])
+ @article=Article.new(article_params)
   @article.valid?
   if @article.save
     redirect_to @article
@@ -28,7 +30,7 @@ class ArticlesController < ApplicationController
  end
 
  def update
-  #@article.update_attributes
+  #@article.update_attributes({title: "Nuevo titulo"})
  end
 
  def destroy
@@ -36,4 +38,10 @@ class ArticlesController < ApplicationController
   @article.destroy
   redirect_to articles_path
  end
+
+#solo podemos permitir titulo y body para que no mande datos sendibles
+ private
+     def article_params
+      params.require(:article).permit(:title,:body)
+    end
 end
