@@ -35,7 +35,7 @@ color: #E74C3C;
 .large-padding{
   padding: 5px 3px
 }
-.field{
+.field,.top_space,.actions{
 margin-top: 1em;
 
 }
@@ -49,9 +49,8 @@ margin-top: 1em;
   font-size: 1.2em;
 }
 
-.top_space{
 
-  margin-top: 1em
+.text-left{
+  text-align: left;;
+
 }
-
-
