@@ -1,4 +1,11 @@
 <h1><%=@article.title%></h1>
+<%unless  @article.user.nil? %>
+    <div>
+      <h4><%=@article.user.email%></h4>
+    </div>
+<%end%>
+
+
 <div>
   <h4><%=@article.body%></h4>
 </div>
